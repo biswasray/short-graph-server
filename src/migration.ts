@@ -2,6 +2,7 @@ import { randomUUID } from "crypto";
 import { IRoleCreate } from "./interfaces/role";
 import Models from "./models";
 import { IUserCreate } from "./interfaces/user";
+import logger from "./utils/logger";
 
 export async function migration() {
   const roleData: IRoleCreate[] = [
@@ -48,11 +49,11 @@ export async function migration() {
       roleList.find((r) => r.roleName === "SuperAdmin")?.id || randomUUID(),
   };
   await Models("user").Create(userPayload);
-  console.log(
-    await Models("role").count({
+  logger.info(
+    `${await Models("role").count({
       where: {
         isActive: true,
       },
-    }),
+    })}`,
   );
 }
