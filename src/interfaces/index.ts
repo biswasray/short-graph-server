@@ -11,6 +11,12 @@ export interface IEntity {
   deletedBy?: UUID;
 }
 
+export interface IMapperEntity {
+  id: UUID;
+  createdAt: Date;
+  createdBy?: UUID;
+}
+
 export type IPureEntity<T> = Omit<T, keyof IEntity>;
 
 export type IRequireOnlyEntity<T> = Pick<
