@@ -13,11 +13,11 @@ export class QuestionModel
   id!: UUID;
   isActive!: boolean;
   createdAt!: Date;
-  createdBy?: UUID | undefined;
+  createdBy?: UUID | null;
   updatedAt!: Date;
-  updatedBy?: UUID | undefined;
+  updatedBy?: UUID | null;
   deletedAt?: Date | undefined;
-  deletedBy?: UUID | undefined;
+  deletedBy?: UUID | null;
   static initModel(sequelize: Sequelize) {
     return QuestionModel.init(
       {

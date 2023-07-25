@@ -2,18 +2,15 @@ import { Sequelize } from "sequelize";
 import { initModels } from "./init-models";
 
 // const sequelize = new Sequelize('sqlite::memory:');
-const sequelize = new Sequelize({
+export const sequelize = new Sequelize({
   dialect: "sqlite",
-  storage: "path/to/database.sqlite",
+  storage: "db/database.sqlite",
 });
 
-(async function () {
-  // await sequelize.query("PRAGMA foreign_keys = false;");
-  // await sequelize.sync({ force: true });
-  // await sequelize.query("PRAGMA foreign_keys = true;");
-  await sequelize.authenticate();
-})();
-//
+// sequelize.query("PRAGMA foreign_keys = false;");
+sequelize.sync({ force: false });
+// sequelize.query("PRAGMA foreign_keys = true;");
+// sequelize.authenticate();
 
 export const models = initModels(sequelize);
 

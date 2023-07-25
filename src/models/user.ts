@@ -14,11 +14,11 @@ export class UserModel extends BaseModel<IUser, IUserCreate> implements IUser {
   id!: UUID;
   isActive!: boolean;
   createdAt!: Date;
-  createdBy?: UUID | undefined;
+  createdBy?: UUID | null;
   updatedAt!: Date;
-  updatedBy?: UUID | undefined;
+  updatedBy?: UUID | null;
   deletedAt?: Date | undefined;
-  deletedBy?: UUID | undefined;
+  deletedBy?: UUID | null;
   static initModel(sequelize: Sequelize) {
     return UserModel.init(
       {
@@ -58,7 +58,7 @@ export class UserModel extends BaseModel<IUser, IUserCreate> implements IUser {
           },
         },
         lastActiveAt: {
-          type: DataTypes.BOOLEAN,
+          type: DataTypes.DATE,
           allowNull: true,
         },
         isActive: {

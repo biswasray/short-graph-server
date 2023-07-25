@@ -7,6 +7,8 @@ import { ExpressErrorHandler } from "platform-error";
 import logger from "./utils/logger";
 import { roleRouter } from "./api/role";
 import { userRouter } from "./api/user";
+import { answerTypeRouter } from "./api/answer_type";
+import { categoryRouter } from "./api/category";
 
 export const RootPath = __dirname;
 const app = express();
@@ -20,6 +22,8 @@ app.use(
   }),
 );
 
+app.use("/answerType", answerTypeRouter);
+app.use("/category", categoryRouter);
 app.use("/role", roleRouter);
 app.use("/user", userRouter);
 

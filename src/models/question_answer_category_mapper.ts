@@ -16,10 +16,10 @@ export class QuestionAnswerCategoryMapperModel
   questionId!: UUID;
   answerTypeId!: UUID;
   answerValueType!: number;
-  categoryId!: number;
+  categoryId!: UUID;
   id!: UUID;
   createdAt!: Date;
-  createdBy?: UUID | undefined;
+  createdBy?: UUID | null;
   static initModel(sequelize: Sequelize) {
     return QuestionAnswerCategoryMapperModel.init(
       {

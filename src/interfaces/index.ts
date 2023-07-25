@@ -4,17 +4,17 @@ export interface IEntity {
   id: UUID;
   isActive: boolean;
   createdAt: Date;
-  createdBy?: UUID;
+  createdBy?: UUID | null;
   updatedAt: Date;
-  updatedBy?: UUID;
-  deletedAt?: Date;
-  deletedBy?: UUID;
+  updatedBy?: UUID | null;
+  deletedAt?: Date | null;
+  deletedBy?: UUID | null;
 }
 
 export interface IMapperEntity {
   id: UUID;
   createdAt: Date;
-  createdBy?: UUID;
+  createdBy?: UUID | null;
 }
 
 export type IPureEntity<T> = Omit<T, keyof IEntity>;
